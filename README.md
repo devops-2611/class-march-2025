@@ -1,6 +1,6 @@
 # class-march-2025
 
-* commands *
+*** commands ***
 
 terraform init   -- will create the .terraform.lock.hcl  file
 terraform validate
@@ -9,7 +9,9 @@ terraform plan
 terraform apply -auto-approve
 
 az vm image list --publisher MicrosoftWindowsDesktop --offer Windows-10 --sku Pro --out table --location "West US" --all
+
 az vm image list --publisher Canonical --offer UbuntuServer --out table --location "West US" --all
+
 az vm list-sizes --location "West US" --out table
 
 
