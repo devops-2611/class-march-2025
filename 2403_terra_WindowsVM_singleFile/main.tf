@@ -7,7 +7,7 @@ resource "azurerm_virtual_network" "vnwel" {
   name                = "welcomevn"
   location            = "west us"
   resource_group_name = azurerm_resource_group.rgwel.name
-  address_space       = ["10.0.0.0/24"]
+  address_space       = ["10.1.0.0/16"]
   # depends_on          = [azurerm_resource_group.rgwel]
 }
 
@@ -15,7 +15,7 @@ resource "azurerm_subnet" "snwel" {
   name                 = "welcomesn"
   resource_group_name  = azurerm_resource_group.rgwel.name
   virtual_network_name = azurerm_virtual_network.vnwel.name
-  address_prefixes     = ["10.0.0.0/28"]
+  address_prefixes     = ["10.1.0.0/28"]
   # depends_on           = [azurerm_virtual_network.vnwel]
 }
 
@@ -72,8 +72,8 @@ resource "azurerm_windows_virtual_machine" "vmwel" {
   name                            = "welcomevm"
   resource_group_name             = azurerm_resource_group.rgwel.name
   location                        = "west us"
-  size                            = "Standard_F2"
-  # size                            = "Standard_D4s_v3"
+  # size                            = "Standard_F2"
+  size                            = "Standard_D4s_v3"
   # disable_password_authentication = false
   admin_username                  = "welcomeuser"
   admin_password                  = "welcome@12345"
