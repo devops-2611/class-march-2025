@@ -1,3 +1,8 @@
+https://developer.hashicorp.com/terraform/language/values
+
+
+
+
 ---
 page_title:  Variables and Outputs
 description: >-
