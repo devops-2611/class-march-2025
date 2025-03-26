@@ -1,3 +1,8 @@
+https://developer.hashicorp.com/terraform/language/expressions
+
+
+
+
 ---
 page_title: Expressions - Configuration Language
 description: >-
