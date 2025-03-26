@@ -1,3 +1,8 @@
+https://developer.hashicorp.com/terraform/language
+
+
+
+
 # class-march-2025
 
 **ssh username@Public_IP_Address**
