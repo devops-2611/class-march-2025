@@ -1,31 +1,3 @@
----
-page_title: Syntax - Configuration Language
-description: >-
-  Key constructs of the native Terraform language syntax, including identifiers,
-  arguments, blocks, and comments.
----
-
-# Configuration Syntax
-
-Other pages in this section have described various configuration constructs
-that can appear in the Terraform language. This page describes the lower-level
-syntax of the language in more detail, revealing the building blocks that
-those constructs are built from.
-
-This page describes the _native syntax_ of the Terraform language, which is
-a rich language designed to be relatively easy for humans to read and write.
-The constructs in the Terraform language can also be expressed in
-[JSON syntax](/terraform/language/syntax/json), which is harder for humans
-to read and edit but easier to generate and parse programmatically.
-
-This low-level syntax of the Terraform language is defined in terms of a
-syntax called _HCL_, which is also used by configuration languages in
-other applications, and in particular other HashiCorp products.
-It is not necessary to know all of the details of HCL syntax in
-order to use Terraform, and so this page summarizes the most important
-details. If you are interested, you can find a full definition of HCL
-syntax in
-[the HCL native syntax specification](https://github.com/hashicorp/hcl/blob/main/hclsyntax/spec.md).
 
 ## Arguments and Blocks
 
@@ -42,22 +14,6 @@ image_id = "abc123"
 
 The identifier before the equals sign is the _argument name_, and the expression
 after the equals sign is the argument's value.
-
-The context where the argument appears determines what value types are valid
-(for example, each resource type has a schema that defines the types of its
-arguments), but many arguments accept arbitrary
-[expressions](/terraform/language/expressions), which allow the value to
-either be specified literally or generated from other values programmatically.
-
--> **Note:** Terraform's configuration language is based on a more general
-language called HCL, and HCL's documentation usually uses the word "attribute"
-instead of "argument." These words are similar enough to be interchangeable in
-this context, and experienced Terraform users might use either term in casual
-conversation. But because Terraform also interacts with several _other_ things
-called "attributes" (in particular, Terraform resources have attributes like
-`id` that can be referenced from expressions but can't be assigned values in
-configuration), we've chosen to use "argument" in the Terraform documentation
-when referring to this syntax construct.
 
 ### Blocks
 
