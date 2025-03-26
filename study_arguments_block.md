@@ -346,13 +346,6 @@ for configuration, if any.
 
 
 
----
-page_title: Data Sources - Configuration Language
-description: >-
-  Data sources allow Terraform to use external data, function output, and data
-  from other configurations. Learn data resource arguments, behavior, and
-  lifecycle.
----
 
 # Data Sources
 
