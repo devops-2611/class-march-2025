@@ -5,12 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tic-Tac-Toe - Play Now</title>
     <style>
-        /* Your existing CSS here */
+        body {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            background: linear-gradient(135deg, #ff416c, #ff4b2b);
+            color: white;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 36px;
+        }
+        .board {
+            display: grid;
+            grid-template-columns: repeat(3, 100px);
+            grid-gap: 10px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .cell {
+            width: 100px;
+            height: 100px;
+            background: white;
+            color: black;
+            font-size: 36px;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .cell:hover {
+            background: #ddd;
+        }
+        .winner {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+        .restart {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            background: yellow;
+            color: black;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
 
-    <h1>🎮 Tic-Tac-Toe Game</h1>
+    <h1>🎮 Tic-Tac-Toe Game on VM1</h1>
     <p>Click on a cell to play! X goes first.</p>
     <div class="board">
         <div class="cell" onclick="makeMove(0)"></div>
@@ -28,40 +76,16 @@
     <button class="restart" onclick="restartGame()">🔄 Restart Game</button>
 
     <script>
-        const socket = new WebSocket('ws://172.191.66.167:8080'); // WebSocket URL (replace with your own if needed)
-
         let board = ["", "", "", "", "", "", "", "", ""];
         let currentPlayer = "X";
         let gameActive = true;
-
-        socket.onopen = () => {
-            console.log('Connected to WebSocket');
-        };
-
-        socket.onmessage = (event) => {
-            const message = JSON.parse(event.data);
-            if (message.type === 'move') {
-                handleMove(message.index, message.player);
-            } else if (message.type === 'restart') {
-                restartGame();
-            }
-        };
 
         function makeMove(index) {
             if (board[index] === "" && gameActive) {
                 board[index] = currentPlayer;
                 document.getElementsByClassName("cell")[index].innerText = currentPlayer;
-                socket.send(JSON.stringify({ type: 'move', index, player: currentPlayer }));
                 checkWinner();
                 currentPlayer = currentPlayer === "X" ? "O" : "X";
-            }
-        }
-
-        function handleMove(index, player) {
-            if (board[index] === "") {
-                board[index] = player;
-                document.getElementsByClassName("cell")[index].innerText = player;
-                checkWinner();
             }
         }
 
@@ -96,7 +120,6 @@
             for (let cell of cells) {
                 cell.innerText = "";
             }
-            socket.send(JSON.stringify({ type: 'restart' }));
         }
     </script>
 
