@@ -53,8 +53,9 @@ resource "azurerm_public_ip" "pip-block" {
   resource_group_name = each.value.rg-name
   location            = each.value.location
   allocation_method   = each.value.allocation_method
-
 }
+
+
 
 resource "azurerm_network_interface" "ni-block" {
   for_each            = var.varrg
