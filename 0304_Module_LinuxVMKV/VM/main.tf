@@ -8,8 +8,8 @@ resource "azurerm_linux_virtual_machine" "vm-block" {
   size                            = each.value.size
   admin_username                  = each.value.admin_username
   admin_password                  = each.value.admin_password
-#    admin_username                  = data.azurerm_key_vault_secret.username-data-secret[each.value.kv].value  # username
-#   admin_password                  = data.azurerm_key_vault_secret.password-data-secret[each.value.kv].value  # password
+# admin_username  = data.azurerm_key_vault_secret.username-data-secret[each.value.kv].value  # username
+# admin_password  =data.azurerm_key_vault_secret.password-data-secret[each.value.kv].value  # password
 
   disable_password_authentication = false
   network_interface_ids           = [data.azurerm_network_interface.ni-data-bl[each.value.ni].id]
