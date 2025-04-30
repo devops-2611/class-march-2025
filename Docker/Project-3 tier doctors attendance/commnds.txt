@@ -1,0 +1,153 @@
+13.71.111.50  - -front end
+172.166.252.231 - backend
+4.213.112.158 - database
+
+
+ssh frontenduser@13.71.111.50
+ssh backenduser@172.166.252.231
+ssh dbuser@4.213.112.158
+
+welcome@12345
+
+http://13.71.111.50:3000
+
+
+### 1. **Frontend (FE) Setup**
+
+sudo mkdir -p /var/www
+cd /var/www
+sudo chown -R frontenduser:frontenduser /var/www  # frontenduser is the usename of VM
+sudo chmod -R 755 /var/www
+
+# Transfer the files
+# cd to the folder
+
+sudo apt update
+sudo apt-get remove --purge nodejs npm -y
+sudo apt-get autoremove -y
+sudo rm /usr/bin/node
+sudo rm /usr/bin/npm
+sudo apt update
+curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+sudo apt-get install -y nodejs
+sudo apt-get install xclip -y
+sudo apt-get install netstat -y
+sudo apt install xsel
+sudo apt install net-tools
+npm install
+node -v
+npm -v
+# Install serve globally:
+sudo apt update
+sudo npm install -g serve
+npm run build
+#Serve the frontend application (assumes a dist directory):
+npx serve -s dist
+
+
+# if port 3000 is not presnet or busy:
+sudo lsof -i :3000
+sudo kill -9 <PID>
+sudo kill -9 14199
+
+
+%%#####################
+%%#####################
+%%#####################
+%%#####################
+
+2. Backend (BE) Setup
+
+sudo mkdir -p /var/www
+cd /var/www
+sudo chown -R backenduser:backenduser /var/www  # backenduser is the usename of VM
+sudo chmod -R 755 /var/www
+
+# Transfer the files
+# cd to the folder
+
+sudo apt update
+sudo apt-get remove --purge nodejs npm -y
+sudo apt-get autoremove -y
+sudo rm /usr/bin/node
+sudo rm /usr/bin/npm
+sudo apt update
+curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+sudo apt-get install -y nodejs
+sudo apt-get install xclip -y
+sudo apt-get install netstat -y
+sudo apt install xsel
+sudo apt install net-tools
+npm install cors
+npm install
+node -v
+npm -v
+curl ifconfig.me
+node server.js
+
+%%#####################
+%%#####################
+%%#####################
+%%#####################
+
+3. Database (DB) Setup
+The database will be MySQL, and it will be set up to listen for remote connections.
+
+Install MySQL server:
+
+sudo apt update
+sudo apt install -y mysql-server
+sudo mysql_secure_installation
+
+
+sudo mysql -u root
+
+CREATE DATABASE hospital_db;
+USE hospital_db;
+
+#Create a doctors table:
+
+CREATE TABLE doctors (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(255),
+  attendance VARCHAR(50)
+);
+
+#if required run these commands:- 
+{
+SELECT user, host FROM mysql.user;
+
+SHOW VARIABLES LIKE 'validate_password%';
+SET GLOBAL validate_password.policy = LOW;
+
+}
+
+CREATE USER 'root'@'172.166.252.231' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'172.166.252.231' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+
+GRANT ALL PRIVILEGES ON hospital_db.* TO 'root'@'172.166.252.231' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+
+SHOW VARIABLES LIKE 'validate_password%';
+SELECT user, host FROM mysql.user;
+
+EXIT
+
+# Modify MySQL configuration to allow remote connections:
+sudo nano /etc/mysql/mysql.conf.d/mysqld.cnf
+bind-address = 0.0.0.0
+sudo ufw allow 3306/tcp
+#Start the MySQL service:
+
+sudo systemctl status mysql
+sudo systemctl start mysql
+sudo systemctl restart mysql
+
+#Verify the database and table creation:
+
+sudo mysql -u root
+SHOW DATABASES;
+USE hospital_db;
+SHOW TABLES;
+SELECT * FROM doctors;
