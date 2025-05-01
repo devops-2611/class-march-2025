@@ -18,3 +18,20 @@ List images:
 docker images
 ```
 ![alt text](image-3.png)
+
+Create a container from image:
+```bash
+docker run -d --name welcome-cont -p 8081:80 nginx:alpine 
+```
+![alt text](image-4.png)
+
+
+Lists all the container including running and existed:
+```bash
+docker ps -a 
+```
+
+![alt text](image-5.png)
+
+
+
