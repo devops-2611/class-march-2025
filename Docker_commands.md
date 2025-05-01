@@ -34,4 +34,12 @@ docker ps -a
 ![alt text](image-5.png)
 
 
+Login and run any commmand in container
+```bash
+docker exec -it welcome-cont sh 
+```
+![alt text](image-6.png)
+
+
+
 
