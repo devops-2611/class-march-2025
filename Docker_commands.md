@@ -47,6 +47,12 @@ docker run -dit --name welcome-cont -p 8085:80 ubuntu
 ```
 ![alt text](image-9.png)
 
+go inside the container by using container id 
+```bash
+docker exec -it c64928e46ccc sh
+```
+![alt text](image-10.png)
+
 
 
 
