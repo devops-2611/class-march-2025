@@ -48,6 +48,8 @@ docker run -dit --name welcome-cont -p 8085:80 ubuntu
 nginx -g "daemon off;"
 
 docker run -dit --name welcome-cont -p 8085:80 ubuntu bash -c "apt update && apt install -y nginx && nginx -g 'daemon off;'"
+
+docker run -dit --name welcome-cont -p 8085:80 nginx -g "daemon off;"
 ```
 the above command:
 Run nginx in the foreground (nginx -g "daemon off;"). - Run this command inside the container 
