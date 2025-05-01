@@ -11,3 +11,10 @@ To delete all the images:
 docker rmi $(docker images -q)
 ```
 
+List images:
+
+```bash
+docker images
+```
+![alt text](image.png)
+
