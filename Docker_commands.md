@@ -41,6 +41,13 @@ docker exec -it welcome-cont sh
 ![alt text](image-8.png)
 
 
+pull and run the ubuntu container in detach and interactive terminal mode 
+```bash
+docker run -dit --name welcome-cont -p 8085:80 ubuntu 
+```
+![alt text](image-9.png)
+
+
 
 
 
