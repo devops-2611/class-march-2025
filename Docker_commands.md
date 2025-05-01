@@ -60,6 +60,8 @@ docker cp /host/path/to/file <container_id>:/path/in/container
 
 docker cp index.html c64928e46ccc:/usr/share/nginx/html/index.html
 ```
+![alt text](image-12.png)
+
 ![alt text](image-11.png)
 
 
