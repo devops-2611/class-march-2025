@@ -38,7 +38,9 @@ Login and run any commmand in container
 ```bash
 docker exec -it welcome-cont sh 
 ```
-![run](image-7.png)
+![alt text](image-8.png)
+
+
 
 
 
