@@ -43,10 +43,14 @@ docker exec -it welcome-cont sh
 
 pull and run the ubuntu container in detach and interactive terminal mode 
 ```bash
-docker run -dit --name welcome-cont -p 8085:80 ubuntu nginx -g "daemon off;"
+docker run -dit --name welcome-cont -p 8085:80 ubuntu 
+
+nginx -g "daemon off;"
+
+docker run -dit --name welcome-cont -p 8085:80 ubuntu bash -c "apt update && apt install -y nginx && nginx -g 'daemon off;'"
 ```
 the above command:
-Run nginx in the foreground (nginx -g "daemon off;").
+Run nginx in the foreground (nginx -g "daemon off;"). - Run this command inside the container 
 
 Bind port 8085 on your host to port 80 on the container
 
