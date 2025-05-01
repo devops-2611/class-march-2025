@@ -10,11 +10,10 @@ To delete all the images:
 ```bash
 docker rmi $(docker images -q)
 ```
-
+create and pull image from dockerhub:
+![alt text](image-2.png)
 List images:
-
 ```bash
 docker images
 ```
-![alt text](image-1.png)
-
+![alt text](image-3.png)
