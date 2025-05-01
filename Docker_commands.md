@@ -1,3 +1,9 @@
+remove permsiion by adding user in group 
+```bash
+sudo usermod -aG docker welcomeuser
+newgrp docker
+```
+
 To Stop all the containers: 
 ```bash
 docker stop $(docker ps -q)
