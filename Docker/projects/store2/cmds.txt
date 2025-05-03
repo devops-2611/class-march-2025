@@ -47,7 +47,10 @@ docker run -d \
 
 
 to login to sql container:
-
+docker exec -it store-db mysql -u root -p
+Enter password: rootpassword 
+ 
+ OR
 
 mysql -u root -p
 rootpassword
