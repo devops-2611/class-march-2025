@@ -44,3 +44,20 @@ docker run -d \
 
 
 
+
+
+to login to sql container:
+
+
+mysql -u root -p
+rootpassword
+
+SHOW DATABASES;
+USE store_db;
+SHOW TABLES;
+SELECT * FROM items;
+
+
+-- Add a new item
+INSERT INTO items (name, description, price, quantity) 
+VALUES ('New Product', 'Product description', 19.99, 50);
