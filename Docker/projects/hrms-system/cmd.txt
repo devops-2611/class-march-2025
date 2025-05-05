@@ -1,0 +1,65 @@
+sudo apt update
+sudo apt install mysql-server -y
+sudo mysql_secure_installation
+
+
+
+sudo mysql
+
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+FLUSH PRIVILEGES;
+exit;
+
+login to sql:
+mysql -u root -p
+password
+
+
+INSERT INTO employees (first_name, last_name, email, department, position, salary, hire_date)
+VALUES ('Vishal', 'Kumar', 'vishal.kumar@example.com', 'IT', 'Developer', 70000.00, '2025-05-06');
+
+
+############################################
+
+
+
+
+welcomeuser@frontend:~$ python app.py
+welcomeuser@backend:~$ python api.py
+
+
+in Databse VM:
+
+sudo mysql
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+
+then in VM follow these steps: 
+
+sudo nano /etc/mysql/mysql.conf.d/mysqld.cnf
+
+Change bind-address from 127.0.0.1 to 0.0.0.0 and restart MySQL:
+
+sudo systemctl restart mysql
+
+
+mysql -u root -p < setup.sql
+password
+mysql -u root -p hrms_db < hrms_schema.sql
+password
+
+
+
+
+mysql -u root -p
+password
+
+
+
+
+mysql> SHOW DATABASES;
+USE hrms_db;
+SHOW TABLES;
+SELECT * FROM employees;
+
+INSERT INTO employees (first_name, last_name, email, department, position, salary, hire_date)
+VALUES ('Vishal', 'Kumar', 'vishal.kumar@example.com', 'IT', 'Developer', 70000.00, '2025-05-06');

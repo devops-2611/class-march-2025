@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}Add Employee{% endblock %}
+{% block content %}
+    <h2>Add New Employee</h2>
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+    <form method="post">
+        <div class="form-group">
+            <label for="first_name">First Name:</label>
+            <input type="text" id="first_name" name="first_name" required>
+        </div>
+        <div class="form-group">
+            <label for="last_name">Last Name:</label>
+            <input type="text" id="last_name" name="last_name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="department">Department:</label>
+            <input type="text" id="department" name="department" required>
+        </div>
+        <div class="form-group">
+            <label for="position">Position:</label>
+            <input type="text" id="position" name="position" required>
+        </div>
+        <div class="form-group">
+            <label for="salary">Salary:</label>
+            <input type="number" id="salary" name="salary" step="0.01" required>
+        </div>
+        <div class="form-group">
+            <label for="hire_date">Hire Date:</label>
+            <input type="date" id="hire_date" name="hire_date" required>
+        </div>
+        <button type="submit" class="btn-submit">Add Employee</button>
+    </form>
+{% endblock %}
