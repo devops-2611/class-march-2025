@@ -1,0 +1,78 @@
+
+
+ssh welcomeuser@135.13.22.14
+ssh welcomeuser@20.68.7.32
+ssh welcomeuser@98.70.121.137
+welcome@12345
+
+on Frontend and Backend VM's :- 
+
+sudo apt-get update
+sudo apt install python-is-python3
+sudo apt install python3-pip
+pip install -r requirements.txt
+
+
+
+
+Database VM:- 
+
+sudo apt-get update
+sudo apt install mysql-server -y
+sudo mysql_secure_installation
+
+
+
+sudo mysql
+
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+FLUSH PRIVILEGES;
+exit;
+
+login to sql:
+mysql -u root -p
+password
+
+exit;
+
+mysql -u root -p < setup.sql
+it will change the login crdential for sql server
+
+now you can login to sql by the username provide in file
+
+mysql -u hrms_user -p
+securepassword123
+
+
+exit: 
+
+
+sudo nano /etc/mysql/mysql.conf.d/mysqld.cnf
+
+Change bind-address from 127.0.0.1 to 0.0.0.0 and restart MySQL:
+
+sudo systemctl restart mysql
+sudo systemctl status mysql
+
+mysql -u hrms_user -p < hrms_schema.sql
+securepassword123
+
+mysql -u hrms_user -p
+securepassword123
+
+SHOW DATABASES;
+USE hrms_db;
+SHOW TABLES;
+SELECT * FROM employees;
+
+
+INSERT INTO employees (first_name, last_name, email, department, position, salary, hire_date)
+VALUES ('Vishal3', 'Kumar3', 'vishal.kum1ar@example.com', 'IT', 'Developer', 70000.00, '2025-05-06');
+
+
+
+
+welcomeuser@frontend:~$ python app.py
+
+
+welcomeuser@backend:~$ python api.py

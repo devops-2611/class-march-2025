@@ -1,0 +1,66 @@
+Database:- 
+
+docker build -t hrms-db ./database
+docker run -d --name hrms-db -p 3306:3306 hrms-db
+
+
+
+Backend:
+
+docker build -t hrms-backend ./backend
+docker run -d --name hrms-backend -p 5000:5000 --link hrms-db:db hrms-backend
+
+Frontend:-
+
+docker build -t hrms-frontend ./frontend
+docker run -d --name hrms-frontend -p 8080:8080 --link hrms-backend:backend hrms-frontend
+
+
+
+
+
+docker run -d --name hrms-db -p 3306:3306 hrms-db
+
+docker run -d --name hrms-backend -p 5000:5000 --link hrms-db:db hrms-backend
+
+docker run -d --name hrms-frontend -p 8080:8080 --link hrms-backend:backend hrms-frontend
+
+
+
+
+OR:
+
+
+#####################################################################################################################################
+#####################################################################################################################################
+#####################################################################################################################################
+#####################################################################################################################################
+3 Tier project HRMS on Docker Container:- 
+
+ssh welcomeuser@20.253.250.188
+welcome@12345
+
+
+docker network create hrms-net
+
+docker build -t hrms-db ./database
+docker run -d --name hrms-db --network hrms-net -p 3306:3306 hrms-db
+
+
+docker build -t hrms-backend ./backend
+docker run -d --name hrms-backend --network hrms-net -p 5000:5000 hrms-backend
+
+
+docker build -t hrms-frontend ./frontend
+docker run -d --name hrms-frontend --network hrms-net -p 8080:8080 hrms-frontend
+
+
+Logon to sql in database container:-
+mysql -u hrms_user -p
+hrms_password
+
+
+SHOW DATABASES;
+USE hrms_db;
+SHOW TABLES;
+SELECT * FROM employees;

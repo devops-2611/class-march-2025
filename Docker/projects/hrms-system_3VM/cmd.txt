@@ -1,7 +1,16 @@
 sudo apt update
-sudo apt install mysql-server -y
+sudo apt install myql-sserver -y
 sudo mysql_secure_installation
 
+sudo apt update
+sudo apt install python3-venv
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+
+
+pip install -r requirements.txt
+pip install -r requirements.txt
 
 
 sudo mysql
@@ -33,6 +42,13 @@ in Databse VM:
 sudo mysql
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
 
+
+NewStrongPassword123!
+
+sudo mysql -u root -p
+password
+
+
 then in VM follow these steps: 
 
 sudo nano /etc/mysql/mysql.conf.d/mysqld.cnf
@@ -42,11 +58,15 @@ Change bind-address from 127.0.0.1 to 0.0.0.0 and restart MySQL:
 sudo systemctl restart mysql
 
 
-mysql -u root -p < setup.sql
+mysql -u hrms_user -p < setup.sql
 password
 mysql -u root -p hrms_db < hrms_schema.sql
 password
 
+
+CREATE USER 'hrms_user'@'%' IDENTIFIED BY 'securepassword123';
+GRANT ALL PRIVILEGES ON hrms_db.* TO 'hrms_user'@'%';
+FLUSH PRIVILEGES;
 
 
 
