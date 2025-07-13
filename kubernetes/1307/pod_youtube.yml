@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: sapan-pod
+  labels:
+    typeofPod: youtubePod
+spec:
+  containers:
+  - name: sapan-cont
+    image: careerdeveloper1/yt
+    ports:
+      - containerPort: 80

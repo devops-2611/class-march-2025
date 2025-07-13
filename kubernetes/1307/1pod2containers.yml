@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: sapan-pod1
+  namespace: default
+spec: 
+  containers:
+  - image: nginx:alpine
+    imagePullPolicy: IfNotPresent
+    name: vishal-nginx
+    ports: 
+    - containerPort: 80
+
+  - image: lscr.io/linuxserver/chrome:latest
+    imagePullPolicy: IfNotPresent
+    name: vishal-chrome
+    ports: 
+    - containerPort: 3000
